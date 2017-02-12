@@ -1,0 +1,399 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	background:url('../img/fond2.png');
+    background-size: cover; 
+}
+
+h5, label {
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+ 
+/*::selection { background: transparent; color:inherit; }
+::-moz-selection { background: transparent; color:inherit; }*/
+
+body{
+   font-family: "Monospace", sans-serif;
+   background:url('../img/fond2.png');
+   background-size: cover;
+   padding:1px;
+}
+
+/*-------------------------
+    Confirmation Style
+--------------------------*/
+
+div#center{
+    position: absolute;
+    top: 44%;
+    left: 25%;
+    padding: 15px;
+    width: 48em;
+}
+
+div#center span {
+    float: left;
+    margin-right: 25px;
+}
+
+div#center p {
+	padding-left:15px;
+    font-family: cursive;
+    line-height: 3em;
+}
+
+/*-------------------------
+    Main Style
+--------------------------*/
+#size{
+    position: absolute;
+    height:100%;
+}
+div.menu{
+    margin-top:10px;
+}
+
+div#blocnote{
+    display: none;
+}
+
+div.note {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 215px;
+    background-color: #b5a768;
+    box-shadow: 0 4px 6px rgba(0,0,0,1.25), 0 0 50px rgba(0,0,0,0.1) inset;
+    border-radius: 2% 0% 0% 0% / 20% 0% 0% 0%;
+}
+div.note:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 33%;
+    height: 25%;
+    /*box-shadow: -10px -10px 15px rgba(0,0,0,0.5);*/
+    -webkit-transform: rotate(7deg) translate(20px,25px) skew(20deg);
+    -moz-transform: rotate(7deg) translate(20px,25px) skew(20deg);
+    -ms-transform: rotate(7deg) translate(20px,25px) skew(20deg);
+    -o-transform: rotate(7deg) translate(20px,25px) skew(20deg);
+    transform: rotate(7deg) translate(20px,25px) skew(20deg);
+}
+
+div.note:hover{
+    cursor:all-scroll;
+}
+
+div.note h5{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+}
+
+div.note label{
+    font-weight: initial;
+}
+
+div.note .form-horizontal, div.note .form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+div.note img{
+    float: right;
+    margin: 10px 10px;
+}
+
+div.note img:hover{
+    cursor:pointer;
+}
+
+button.btn.btn-danger.sup {
+    margin-left: 25px;
+}
+
+div.note .grbt{
+    display:none;
+}
+
+#bulle{
+    display:none;
+    position: absolute;
+}
+
+h3#libCode{
+    position:absolute;
+    top: 3em;
+    left:5em;
+    color:cadetblue;
+}
+
+#bulle #img1{
+    width: 304px;
+    height: 219px;
+}
+
+#bulle #img2, #bulle #img2Bis {
+    position: absolute;
+    top: 2em;
+    right: 1em;
+    float: right;
+}
+
+#bulle input[type="password"], #bulle input[type="submit"]{
+    position:absolute;
+}
+
+#bulle input[type="password"]{
+    top: 6.5em;
+    left: 5em;
+    width: 50%;
+}
+#bulle input[type="submit"]{
+    top: 11em;
+    left: 7em;
+    width: 30%;
+}
+
+p#error{
+    display: none;
+    color: red;
+    font-size: small;
+    position: relative;
+    bottom: 7em;
+    left: 2em;
+}
+
+p#error2{
+    display: none;
+    color: red;
+    font-size: small;
+    position: relative;
+    bottom: 0.5em;
+    left: 1em;
+}
+
+.correct{
+    background-color: white !important;
+    color: green !important;
+    border: 1px solid #63ad1b !important;
+}
+.incorrect{
+    color: red !important;
+    background-color: #eee !important;
+    border: 1px solid #ff4444 !important;
+}
+
+table#grille {
+    position: absolute;
+    left: 40px;
+    margin-top: 40px;
+}
+
+table#grille td{
+    border:1px solid black;
+}
+
+td{
+    position: relative;
+}
+
+/*Nouvelle note*/
+
+input#desc {
+    margin-top: 15px;
+}
+img.point {
+    float: left !important;
+    z-index: 10;
+    position: relative;
+    left: 130px;
+    top: -33px;
+}
+img.point:hover{
+    top:-36px;
+    cursor:all-scroll;
+}
+
+.form-group.title {
+    margin-bottom: 1px;
+}
+.form-group.log {
+    margin-bottom: 8px;
+}
+
+/* Modification note */
+#descMod{
+    margin-top:-33px;
+}
+
+/****************************************************************************/
+/**************************Responsive Ajustement****************************/
+/***************************************************************************/
+
+/*Smartphones (portrait and landscape)*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles pour cette Media Queries */
+}
+
+/*Smartphones (landscape)*/
+@media only screen and (min-width : 321px) {
+/* Styles pour cette Media Queries */
+}
+
+/*iPads (portrait and landscape)*/
+@media only screen and (max-width : 320px) {
+/* Styles pour cette Media Queries */
+}
+
+/*iPads (landscape)*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles pour cette Media Queries */
+}
+
+/*iPads (portrait)*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles pour cette Media Queries */
+}
+
+/*Desktops and laptops*/
+@media only screen and (min-width : 1224px){
+/* Styles pour cette Media Queries */
+}
+
+/*Large screens*/
+@media only screen and (min-width : 1824px) {
+/* Styles pour cette Media Queries */
+}
+
+@media (max-width : 768px) {
+/* Styles pour cette Media Queries */
+/*    input{
+        background-color: blue !important;
+    }*/
+    body{
+        font-size: 14px;
+    }
+    button.btn, input.btn{
+        font-size: 12px;
+    }
+    label{
+        padding-top: 7px;
+    }
+    .container {
+        position: absolute;
+        left: -32px;
+    }
+    div.menu{
+        margin-left:-13px;
+    }
+}
+
+@media (max-width : 368px) {
+/* Styles pour cette Media Queries */
+/*    input{
+        background-color: red !important;
+    }*/
+    .container {
+        position: absolute;
+        left: -32px;
+    }
+    div.menu{
+        margin-left:-13px;
+    }
+}
+
+/*iPhone 4*/
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5){
+/* Styles pour cette Media Queries */
+}
+
+/*iPhone 3G*/
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1){
+/* Styles pour cette Media Queries */
+}
+
+/*iPhone 5*/
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
+/* Styles pour cette Media Queries */
+}
+
+/*iPad Mini*/
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1){
+/* Styles pour cette Media Queries */
+}
+
+/*iPad 2 Landscape*/
+@media (max-device-width: 1024px) and (orientation: landscape) {
+/* Styles pour cette Media Queries */
+}
+
+/*iPad 2 Portrait*/
+@media (max-device-width: 768px) and (orientation: portrait) {
+/* Styles pour cette Media Queries */
+}

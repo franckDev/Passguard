@@ -1,0 +1,595 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+*{
+	-webkit-box-sizing: initial;
+	margin:0;
+	padding:0;
+}
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+html{
+	/*background:url('../img/bg_tile.jpg') #161718;*/
+	overflow-x: hidden; 
+}
+
+h2{
+	text-shadow: 1px 1px 15px rgb(94, 94, 94);
+	margin-top: 60px;
+	margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5em;
+    color: #2f2f2f;
+}
+
+#recover h2{
+	margin-top: 60px;
+	margin-bottom: 25px;
+}
+
+body{
+	font-family: "Monospace", sans-serif;
+	/*background:url('../img/bg_center.jpg') no-repeat center center;*/
+	background-color: currentColor;
+	min-height: 600px;
+    padding: 200px 0 0;
+}
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	color:#54a6de;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+section, footer{
+	display: block;
+}
+
+
+/*----------------------------
+	Styling the forms
+-----------------------------*/
+
+
+#formContainer{
+	height: 525px;
+	width:40.777%;
+	position:relative;
+	z-index:1;
+	
+	-moz-perspective: 800px;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+}
+
+#formContainer form{
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	
+	/* Enabling 3d space for the transforms */
+	-moz-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	
+	/* When the forms are flipped, they will be hidden */
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	
+	/* Enabling a smooth animated transition */
+	-moz-transition:0.8s;
+	-webkit-transition:0.8s;
+	transition:0.8s;
+	
+	/* Configure a keyframe animation for Firefox */
+	-moz-animation: pulse 2s infinite;
+	
+	/* Configure it for Chrome and Safari */
+	-webkit-animation: pulse 2s infinite;
+}
+
+
+/* Firefox Keyframe Animation */
+@-moz-keyframes pulse{
+	0%{		box-shadow:0 0 1px #008aff;}
+	50%{	box-shadow:0 0 8px #008aff;}
+	100%{	box-shadow:0 0 1px #008aff;}
+}
+
+/* Webkit keyframe animation */
+@-webkit-keyframes pulse{
+	0%{		box-shadow:0 0 1px #008aff;}
+	50%{	box-shadow:0 0 10px #008aff;}
+	100%{	box-shadow:0 0 1px #008aff;}
+}
+
+#login{
+	background:url('../img/clean_form_bg.jpg') no-repeat;
+	background-size: 563px 563px;
+	z-index:100;
+}
+
+#recover{
+	background:url('../img/clean_form_bg.jpg') no-repeat;
+	background-size: cover;
+	z-index:1;
+	opacity:0;
+	
+	/* Rotating the recover password form by default */
+	-moz-transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+	transform:rotateY(180deg);
+}
+
+#formContainer.flipped #login{
+	
+	opacity:0;
+	
+	/**
+	 * Rotating the login form when the
+	 * flipped class is added to the container
+	 */
+	
+	-moz-transform:rotateY(-180deg);
+	-webkit-transform:rotateY(-180deg);
+	transform:rotateY(-180deg);
+}
+
+#formContainer.flipped #recover{
+	
+	opacity:1;
+	
+	/* Rotating the recover div into view */
+	-moz-transform:rotateY(0deg);
+	-webkit-transform:rotateY(0deg);
+	transform:rotateY(0deg);
+}
+
+
+/*----------------------------
+	Inputs, Buttons & Links
+-----------------------------*/
+
+#recover .flipLink,
+#login .flipLink{
+	
+	/* The blue ribbon links */
+    height: 0px;
+    position: absolute;
+    right: 0;
+    text-indent: 148px;
+    color:white;
+    top: 14px;
+    width: 65px;
+    border-style: solid;
+	border-width: 0 145px 100px 0;
+	border-color: transparent #007bff transparent transparent;
+}
+
+#login:after{
+	/* The "Click here" tooltip */
+	width:98px;
+	height:16px;
+	content:'';
+	position:absolute;
+	right:-120px;
+	top:22px;
+}
+
+#login h2{
+	margin-bottom: 90px;
+}
+
+form#recover a span, form#login a span {
+    position: absolute;
+    top: 25px;
+    left: -20px;
+    color: white;
+    float: left;
+    line-height: 0px;
+    font-size: 16px;
+    width:274px;
+}
+
+div.col{
+	width: 85%;
+	height:60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.colb{
+	width: 25em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 290px;
+}
+
+input[type=text],input[type=password]{
+	border: none;
+	background: #2f2f2f;
+    opacity: 0.5;
+	height: 36px;
+	/*width: 28em;*/
+	width:100%;
+	text-indent: 8px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	color:#eee;
+	outline:none;
+	margin-bottom:20px;
+}
+
+#recover input[type=text],#recover input[type=password]{
+	margin-bottom:10px;
+}
+
+input[type=text],input[type=password]{
+	outline: solid 1px;
+}
+
+.password + .unmask {
+  position: absolute;
+  right: 18px;
+  top: 52px;
+  text-indent: -9999px;
+  width: 25px;
+  height: 25px;
+  background: #aaa;
+  border-radius: 50%;
+  cursor:pointer;
+  border: none;
+  -webkit-appearance:none;
+}
+.password + .unmask:before {
+  content: "";
+  position:absolute;
+  top:4px; left:4px;
+  width: 17px;
+  height: 17px;
+  background: #e3e3e3;
+  z-index:1;
+  border-radius: 50%;
+}
+.password[type="text"] + .unmask:after {
+  content: "";
+  position:absolute;
+  top:6px; left:6px;
+  width: 13px;
+  height: 13px;
+  z-index:2;
+  border-radius: 50%;
+}
+
+.password2 + .unmask2 {
+  position: absolute;
+  right: 18px;
+  top: 98px;
+  text-indent: -9999px;
+  width: 25px;
+  height: 25px;
+  background: #aaa;
+  border-radius: 50%;
+  cursor:pointer;
+  border: none;
+  -webkit-appearance:none;
+}
+.password2 + .unmask2:before {
+  content: "";
+  position:absolute;
+  top:4px; left:4px;
+  width: 17px;
+  height: 17px;
+  background: #e3e3e3;
+  z-index:1;
+  border-radius: 50%;
+}
+.password2[type="text"] + .unmask2:after {
+  content: "";
+  position:absolute;
+  top:6px; left:6px;
+  width: 13px;
+  height: 13px;
+  z-index:2;
+  border-radius: 50%;
+}
+
+abbr.glyphicon.glyphicon-question-sign {
+    float: right;
+    font-size: xx-large;
+    top: -44px;
+    left: -1px;
+}
+
+#recover p{
+	position:relative;
+}
+
+input[type=submit], input[type="reset"]{
+	
+	/* Submit button */
+	opacity:0.9;
+	width:35%;
+	height:36px;
+	cursor:pointer;
+	border-radius:6px;
+	box-shadow:0 1px 1px #888;
+	border:solid 0.8px;
+	color:#fff;
+	margin-left:3em;
+	/* CSS3 Gradients */
+	
+	background-image: linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(80,102,127) 50%, rgb(87,109,136) 50%, rgb(106,129,155) 100%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.5, rgb(80,102,127)),
+		color-stop(0.5, rgb(87,109,136)),
+		color-stop(1, rgb(106,129,155))
+	);
+}
+
+input[type=submit]:hover{
+	opacity:1;
+}
+
+input[type=reset]:hover{
+	opacity:1;
+}
+
+input::-webkit-input-placeholder {
+    color:#eee;
+}
+
+#question:hover{
+	cursor:pointer;
+}
+
+span#eye-open, span#eye-close {
+    position: absolute;
+    top: 57px;
+    right: 23px;
+    z-index: 1000;
+}
+
+span#eye-open:hover, span#eye-close:hover {
+	cursor:pointer;
+}
+
+span#eye-open2, span#eye-close2 {
+    position: absolute;
+    top: 103px;
+    right: 23px;
+    z-index: 1000;
+}
+
+span#eye-open2:hover, span#eye-close2:hover {
+	cursor:pointer;
+}
+
+@keyframes mymove {
+    from {
+		transform:rotateX(0deg);
+		color: red;
+    }
+    to {
+		transform:rotateX(-45deg);
+		color: black;
+    }
+}
+
+#flipToRecover span{
+    -webkit-animation: mymove 1s infinite; 
+    -webkit-animation-timing-function: linear; 
+    animation: mymove 1s infinite;
+}
+
+#flipToLogin span{
+    -webkit-animation: mymove 1s infinite; 
+    -webkit-animation-timing-function: linear; 
+    animation: mymove 1s infinite;
+}
+
+
+/*----------------------------
+			Captcha
+-----------------------------*/
+
+p#error{
+	position:absolute;
+    display: none;
+    margin: 5px 0px 5px 0px;
+    color: red;
+    font-size: small;
+}
+p#error2{
+    display: none;
+    color: red;
+    font-size: small;
+}
+.correct{
+    background-color: white !important;
+    color: green !important;
+    border: 1px solid #63ad1b !important;
+}
+.incorrect{
+    color: red !important;
+    background-color: #eee !important;
+    border: 1px solid #ff4444 !important;
+}
+
+input.empty {
+    border:inherit;
+}
+
+img#captcha {
+    margin-right: 10px;
+    border: 1px solid whitesmoke;
+}
+
+.capcha img:nth-child(2) {
+	top:0px !important;
+}
+
+input#code {
+	margin-top: 25px;
+}
+
+/*----------------------------
+	 Mot de passe oublié
+-----------------------------*/
+
+form#passOub{
+	border: 4px solid black;
+	width:100%;
+}
+h3#titrePass {
+    color: black;
+    text-shadow: 1px 1px 3px white;
+    margin-top: 120px;
+    margin-bottom: 90px;
+    text-align: center;
+    width: 100%;
+}
+
+input#recoverPass{
+	margin-bottom: 55px;
+	border:1px solid #007bff;
+}
+
+#fond {
+    background-color: darkgray;
+	display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 120;
+}
+
+a#close {
+    position:absolute;
+    background-color: black;
+    border-width: 1px;
+    border-color: cadetblue;
+    border-style: double;
+    padding: 15px;
+    text-decoration: none;
+}
+
+a#close:hover{
+	padding:16px;
+	font-size: 1em;
+	color:ghostwhite;
+}
+
+input#submitPass{
+	margin-left: 110px;
+}
+
+/* Portrait */
+@media screen and (min-width:480px) {
+    /* Portrait styles */
+/*    input{
+    	background-color: red !important;
+    }*/
+    div.colb{
+    	width:22em;
+    	margin-left: 80px;
+    	margin-right: 40px;
+    }
+    div.colb input[type="submit"], div.colb input[type="reset"]{
+    	width:7em;
+    }
+    div.colb2{
+    	width:28em;
+		margin: auto;
+    }
+    div.colb2 input[type="submit"], div.colb2 input[type="reset"]{
+    	width:7em;
+    }
+    #recover .flipLink{
+    	top: 13px;
+    }
+    #bulle{
+    	left: 2.75px;
+    	top: 220px;
+    	z-index:100;
+    }  
+}
+
+/* Portrait */
+@media screen and (max-width:480px) {
+    /* Portrait styles */
+/*    input{
+    	background-color: blue !important;
+    }*/
+    body{
+    	font-size: 12px;
+    }
+    h2{
+    	font-size: 25px
+    }
+    h3#titrePass{
+    	font-size: 20px;
+    }
+    #formContainer{
+    	width:80%;
+    }
+    div.colb{
+    	width:25em;
+    	margin: auto;
+    }
+    div.colb input[type="submit"], div.colb input[type="reset"]{
+    	width:7em;
+    }
+    div.colb2{
+    	width:22em;
+    	margin-left: -21px;
+    	margin-right: 40px;
+    }
+    div.colb2 input[type="submit"], div.colb2 input[type="reset"]{
+    	width:7em;
+    }
+    #bulle{
+    	left: -84.25px;
+    	top: 220px;
+    	z-index:100;
+    }
+    #recover .flipLink{
+    	top:13px;
+    }
+    #block{
+    	margin-left: -15px;
+    }
+}
+/* Portrait */
+@media screen and (max-device-width:450px) and (orientation:portrait) {
+    /* Portrait styles */
+/*    input{
+    	background-color: brown !important;
+    }*/ 
+}
+
+/* Landscape */
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+/*        input{
+    	background-color: green !important;
+    }*/
+}
+
